@@ -1,4 +1,4 @@
-import 'package:blubroject/controllers/authetication.dart';
+import 'package:blubroject/controllers/authentication.dart';
 import 'package:blubroject/view/widgets/input_widget.dart';
 import 'package:blubroject/view/login_page.dart';
 import 'package:flutter/material.dart';
@@ -17,8 +17,8 @@ class _RegisterPage extends State<RegisterPage> {
   final TextEditingController _passwordController = TextEditingController();
   final TextEditingController _nameController = TextEditingController();
   final TextEditingController _usernameController = TextEditingController();
-  final AutheticationController _autheticationController =
-      Get.put(AutheticationController());
+  final AuthenticationController _autheticationController =
+      Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
@@ -69,7 +69,7 @@ class _RegisterPage extends State<RegisterPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: const Color.fromARGB(255, 75, 140, 253),
                     elevation: 0,
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,

@@ -6,10 +6,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:http/http.dart' as http;
 
-class AutheticationController extends GetxController {
+class AuthenticationController extends GetxController {
   final isloading = false.obs;
   final token = ''.obs;
-
   final box = GetStorage();
 
   Future register({
@@ -21,13 +20,13 @@ class AutheticationController extends GetxController {
     try {
       isloading.value = true;
       var data = {
-        'nama': name,
+        'name': name,
         'username': username,
         'email': email,
         'password': password,
       };
       var response = await http.post(
-        Uri.parse('${url} + register'),
+        Uri.parse('${url}register'),
         headers: {'Accept': 'application/json'},
         body: data,
       );
@@ -66,7 +65,7 @@ class AutheticationController extends GetxController {
         'password': password,
       };
       var response = await http.post(
-        Uri.parse('${url} + login'),
+        Uri.parse('${url}login'),
         headers: {'Accept': 'application/json'},
         body: data,
       );

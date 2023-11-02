@@ -1,4 +1,4 @@
-import 'package:blubroject/controllers/authetication.dart';
+import 'package:blubroject/controllers/authentication.dart';
 import 'package:blubroject/view/widgets/input_widget.dart';
 import 'package:blubroject/view/register_page.dart';
 import 'package:flutter/material.dart';
@@ -15,8 +15,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   final TextEditingController _usernameController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  final AutheticationController _autheticationController =
-      Get.put(AutheticationController());
+  final AuthenticationController _autheticationController =
+      Get.put(AuthenticationController());
 
   @override
   Widget build(BuildContext context) {
@@ -51,7 +51,7 @@ class _LoginPageState extends State<LoginPage> {
               ),
               ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.black,
+                    backgroundColor: const Color.fromARGB(255, 75, 140, 253),
                     elevation: 0,
                     padding: EdgeInsets.symmetric(
                       horizontal: 50,
@@ -62,16 +62,18 @@ class _LoginPageState extends State<LoginPage> {
                       username: _usernameController.text.trim(),
                       password: _passwordController.text.trim());
                 },
-                child: Obx(() {
-                  return _autheticationController.isloading.value
-                      ? CircularProgressIndicator(
-                          color: Colors.white,
-                        )
-                      : Text(
-                          'Login',
-                          style: GoogleFonts.poppins(fontSize: size * 0.040),
-                        );
-                }),
+                child: Obx(
+                  () {
+                    return _autheticationController.isloading.value
+                        ? CircularProgressIndicator(
+                            color: Colors.white,
+                          )
+                        : Text(
+                            'Login',
+                            style: GoogleFonts.poppins(fontSize: size * 0.040),
+                          );
+                  },
+                ),
               ),
               SizedBox(
                 height: 20,
